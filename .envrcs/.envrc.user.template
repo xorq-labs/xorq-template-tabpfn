@@ -1,0 +1,6 @@
+# Auto-created as .envrcs/.envrc.user by the root .envrc and never
+# overwritten afterwards; this copy is yours to edit. Paths are relative to
+# .envrcs/.
+
+# Toolchain: uv sync + venv activation (the template-sklearn layout).
+source_env .envrc.user.uv

@@ -1,0 +1,41 @@
+# Auto-created as `.gitignore` by the root `.envrc`. This template is tracked;
+# the generated `.gitignore` is untracked and ignores itself.
+.gitignore
+
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+/builds
+
+# Build products of the user layer
+.direnv
+.venv
+/result
+/result-*
+
+# Local direnv fragments, auto-created from their templates
+.envrcs/.envrc.secrets
+.envrcs/.envrc.user
+
+# Per-user dotenv fragments and plaintext secret sources. Plaintext never
+# gets committed, so the wildcard is deliberately broad.
+.envrcs/.env.*
+.env
+*.env
+
+# Tracked exceptions, after the rules they override:
+!.envrcs/.env.*.template
+!*.sops-encrypted
+
+# This repo's own override, after the exceptions on purpose: the bundles
+# under .envrcs/ hold one person's TABPFN_TOKEN encrypted to that person's
+# key, so they never belong in a commit.
+.envrcs/*.sops-encrypted
+
+# Claude Code's per-checkout state, except the tracked project hooks
+.claude/*
+!.claude/settings.json

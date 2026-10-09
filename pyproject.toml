@@ -1,0 +1,49 @@
+[project]
+name = "xorq-template-tabpfn"
+version = "0.1.0"
+description = "Prior Labs' TabPFN served through xorq's deferred sklearn surface"
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "packaging>=26.2",
+    "pins[gcs]>=0.9.0",
+    "scikit-learn>=1.7.0",
+    "tabpfn-client>=0.6.1",
+    "uv>=0.9.18",
+    "xorq[duckdb]==0.4.6",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "xorq-style~=0.3.0",
+    "ipython>=8.37.0",
+    "pytest>=8",
+    "pre-commit>=4.6.2",
+]
+
+[tool.ruff.lint]
+extend-select = ["I", "ICN", "B", "C4", "FURB", "PLC0415", "DTZ"]
+ignore = ["B018", "B905"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["xorq", "xorq_template_tabpfn"]
+section-order = ["future", "standard-library", "third-party", "first-party", "local-folder"]
+lines-after-imports = 2
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.xorq-style]
+# scripts/post_counter.py must attach to httpx's stdlib logger, which structlog cannot replace.
+disable = ["stdlib-logging"]
+
+[tool.xorq-style.os-environ]
+# The scripts build child-process environments and check token presence by design.
+allow-paths = ["scripts/"]
+
+[tool.xorq-style.print]
+# The live smoke script prints its receipt to stdout by design; allow-files matches on basename.
+allow-files = ["smoke_live.py", "smoke_cache.py", "smoke_flight.py", "serve_flight.py", "flight_client.py", "evict_model.py"]

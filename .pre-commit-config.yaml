@@ -1,0 +1,24 @@
+# The same three checks CI runs, from the venv that direnv syncs, so the
+# versions match CI and the edit hook in .claude/settings.json. Install once
+# per clone with `pre-commit install`.
+repos:
+  - repo: local
+    hooks:
+      - id: ruff-check
+        name: ruff check
+        entry: ruff check
+        language: system
+        types: [python]
+        pass_filenames: true
+      - id: ruff-format
+        name: ruff format --check
+        entry: ruff format --check
+        language: system
+        types: [python]
+        pass_filenames: true
+      - id: xorq-check-style
+        name: xorq-check-style
+        entry: xorq-check-style
+        language: system
+        types: [python]
+        pass_filenames: true
