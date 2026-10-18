@@ -46,4 +46,4 @@ allow-paths = ["scripts/"]
 
 [tool.xorq-style.print]
 # The live smoke script prints its receipt to stdout by design; allow-files matches on basename.
-allow-files = ["smoke_live.py", "smoke_cache.py", "smoke_flight.py", "serve_flight.py", "flight_client.py", "evict_model.py"]
+allow-files = ["smoke_live.py", "smoke_cache.py", "smoke_flight.py", "serve_flight.py", "flight_client.py", "evict_model.py", "probe_model_path.py"]
