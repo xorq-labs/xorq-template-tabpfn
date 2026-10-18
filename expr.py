@@ -52,7 +52,10 @@ from xorq.vendor.ibis.common.collections import FrozenDict
 
 
 TOKEN_ENV_VAR = "TABPFN_TOKEN"
-MODEL_PATH = "v3.5_default"
+# A dated checkpoint, not the "v3.5_default" alias: the server resolves the
+# alias to whatever its current 3.5 default is, so an entry naming it would not
+# pin the weights. scripts/probe_model_path.py checks which names the API takes.
+MODEL_PATH = "tabpfn-v3.5-20260909.safetensors"
 N_ESTIMATORS = 8
 
 OPENML_PARQUET_URL = "https://data.openml.org/datasets/0004/{id}/dataset_{id}.pq"
