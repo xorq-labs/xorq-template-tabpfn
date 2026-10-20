@@ -87,6 +87,7 @@ python scripts/smoke_flight.py  # starts a prediction server and two token-less 
 | `scripts/smoke_*.py` | the live checks above |
 | `scripts/serve_flight.py`, `scripts/flight_client.py` | a prediction server and a token-less client for it |
 | `scripts/evict_model.py` | deletes cached models that Prior Labs no longer recognizes (see "Caching") |
+| `scripts/probe_model_path.py` | asks the API which TabPFN 3.5 `model_path` names it accepts; why `MODEL_PATH` is a dated checkpoint |
 | `scripts/src_import_expr.py`, `src/xorq_template_tabpfn/` | an example of importing code from `src/`; see "Adapting the template" |
 | `tests/test_expr.py` | offline tests, using stand-in models and made-up policies |
 
